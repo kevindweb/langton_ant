@@ -1,0 +1,56 @@
+what do we need
+    - object to move around different grid points - call it player
+        - player position will be global so window can access where player is
+            - will be a tuple (x position, y position) in 2d array
+        - player starts facing a random direction (n, s, e, w)
+            - direction is also global so we know how to maneuver
+    - window that can create a grid of certain size
+        - stop running program if the window closes, or the player is outside of grid
+    - need grid objects to hold data about whether we have visited this box
+        - visited (boolean) = false initially
+        if visited:
+            move left
+        else:
+            move right
+            visited = true
+    - have a move function that takes 0 or 1, left or right - move (int)
+        switch direction:
+            case 'n':
+                if move: // move == right
+                    east() // make player face east
+                else:
+                    west()
+                break
+            case 's':
+                if move:
+                    west()
+                else:
+                    east()
+                break
+            case 'e':
+                if move:
+                    south()
+                else:
+                    north()
+                break
+            case 'w':
+                if move:
+                    north()
+                else:
+                    south()
+                break
+
+    - create move functions
+        // remember we are using indices, not a graph, -1 in row in 2d array means +1 in y axis
+        def north():
+            player.direction = 'n'
+            player.position[1] -= 1
+        def south():
+            player.direction = 's'
+            player.position[1] += 1
+        def east():
+            player.direction = 'e'
+            player.position[0] += 1
+        def west():
+            player.direction = 'w'
+            player.position[0] -= 1
