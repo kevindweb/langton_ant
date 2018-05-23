@@ -122,10 +122,14 @@ def move_loop(root, app, size, rate):
 
 if __name__ == '__main__':
     root = Tk()
-    size = (int)(sys.argv[1]) if sys.argv[1] else 8
-    # width and height of board is second command argument (default: 8)
-    rate = (int)(sys.argv[2]) if sys.argv[2] else 5
-    # rate that the ant moves on board is third command argument (default: 5 moves / second)
+    if len(sys.argv) > 2:
+        size = (int)(sys.argv[1]) if sys.argv[1] else 8
+        # width and height of board is second command argument (default: 8)
+        rate = (int)(sys.argv[2]) if sys.argv[2] else 5
+        # rate that the ant moves on board is third command argument (default: 5 moves / second)
+    else:
+        size = 8
+        rate = 5
     if size % 2 == 0:
         size -= 1
     if size < 3:
